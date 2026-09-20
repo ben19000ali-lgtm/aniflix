@@ -1,4 +1,4 @@
-                <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #0b0c0e; color: #ffffff; font-family: 'Segoe UI', Roboto, sans-serif; }
         
-        /* En-tête / Navbar */
         header { 
             background: linear-gradient(180deg, #161920 0%, #0b0c0e 100%); 
             display: flex; align-items: center; justify-content: space-between; 
@@ -20,7 +19,6 @@
         .search-box { display: flex; background: #1a1d24; border-radius: 25px; padding: 8px 18px; width: 100%; max-width: 320px; border: 1px solid #2d323e; }
         .search-box input { background: transparent; border: none; color: #fff; outline: none; width: 100%; font-size: 0.95rem; }
         
-        /* Bannière Héro */
         .hero { 
             position: relative; width: 100%; height: 350px; 
             background: linear-gradient(to right, rgba(11, 12, 14, 0.95), rgba(11, 12, 14, 0.3)), 
@@ -33,11 +31,9 @@
         .btn-play { background: #e50914; color: #fff; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
         .btn-play:hover { background: #b80710; transform: scale(1.05); }
 
-        /* Conteneur principal */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 50px 20px; }
         .section-title { font-size: 1.5rem; margin-bottom: 25px; border-left: 4px solid #e50914; padding-left: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        /* Grille des animés */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; }
         .card { 
             background-color: #15181e; border-radius: 10px; overflow: hidden; 
@@ -57,7 +53,6 @@
 </head>
 <body>
 
-    <!-- En-tête -->
     <header>
         <a href="index.html" class="logo">Ani<span>Flix</span></a>
         <div class="search-box">
@@ -65,7 +60,6 @@
         </div>
     </header>
 
-    <!-- Bannière à la Une -->
     <section class="hero">
         <div class="hero-content">
             <h1>ONE PIECE</h1>
@@ -74,7 +68,6 @@
         </div>
     </section>
 
-    <!-- Catalogue -->
     <div class="container">
         <h2 class="section-title">Animés Populaires</h2>
         <div class="grid" id="animeGrid">
@@ -123,10 +116,53 @@
                 </div>
             </a>
 
+            <a href="naruto.html" class="card">
+                <div class="poster-container">
+                    <span class="badge vf">VF / VOSTFR</span>
+                    <img src="https://cdn.myanimelist.net/images/anime/13/17405.jpg" alt="Naruto Shippuden">
+                </div>
+                <div class="card-info">
+                    <h3>Naruto Shippuden</h3>
+                    <p>500 Épisodes • Intégrale</p>
+                </div>
+            </a>
+
+            <a href="mha.html" class="card">
+                <div class="poster-container">
+                    <span class="badge">VOSTFR</span>
+                    <img src="https://cdn.myanimelist.net/images/anime/10/78745.jpg" alt="My Hero Academia">
+                </div>
+                <div class="card-info">
+                    <h3>My Hero Academia</h3>
+                    <p>Saison 1 à 7 • Tous les épisodes</p>
+                </div>
+            </a>
+
+            <a href="hunter-x-hunter.html" class="card">
+                <div class="poster-container">
+                    <span class="badge vf">VF</span>
+                    <img src="https://cdn.myanimelist.net/images/anime/11/33657.jpg" alt="Hunter x Hunter">
+                </div>
+                <div class="card-info">
+                    <h3>Hunter x Hunter</h3>
+                    <p>148 Épisodes • Intégrale</p>
+                </div>
+            </a>
+
+            <a href="solo-leveling.html" class="card">
+                <div class="poster-container">
+                    <span class="badge">VOSTFR</span>
+                    <img src="https://cdn.myanimelist.net/images/anime/1269/137426.jpg" alt="Solo Leveling">
+                </div>
+                <div class="card-info">
+                    <h3>Solo Leveling</h3>
+                    <p>Saison 1 • Épisodes 1-12</p>
+                </div>
+            </a>
+
         </div>
     </div>
 
-    <!-- Script Recherche -->
     <script>
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.card');
