@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniFlix - Streaming</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c0e; color: #ffffff; font-family: 'Segoe UI', Roboto, sans-serif; }
+        
+        header { 
+            background: #161920; 
+            padding: 15px 5%; 
+            border-bottom: 2px solid #e50914; 
+            display: flex; align-items: center; justify-content: space-between; 
+        }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .logo span { color: #e50914; }
+
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        
+        .btn-back { 
+            display: inline-block; background: #e50914; color: #fff; 
+            padding: 10px 20px; text-decoration: none; border-radius: 5px; 
+            font-weight: bold; margin-bottom: 20px; transition: 0.3s;
+        }
+        .btn-back:hover { background: #b80710; }
+
+        h1 { margin-bottom: 10px; font-size: 2rem; }
+        .subtitle { color: #828a99; margin-bottom: 20px; }
+
+        .player-container { 
+            width: 100%; height: 500px; background: #000; 
+            border-radius: 8px; overflow: hidden; margin-bottom: 25px; 
+            border: 1px solid #1f232d;
+        }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        .episodes-box { background: #15181e; padding: 20px; border-radius: 8px; border: 1px solid #1f232d; }
+        .episodes-box h3 { margin-bottom: 15px; border-left: 4px solid #e50914; padding-left: 10px; }
+        
+        .season-select { 
+            background: #1f232d; color: white; padding: 10px; 
+            border: 1px solid #2d323e; border-radius: 5px; font-size: 1rem; 
+            width: 100%; margin-bottom: 20px; outline: none;
+        }
+
+        .episodes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; }
+        .ep-btn { 
+            background: #1f232d; color: white; text-align: center; 
+            padding: 10px; border-radius: 5px; text-decoration: none; 
+            border: 1px solid #2d323e; transition: 0.2s; font-size: 0.9rem;
+        }
+        .ep-btn:hover { background: #e50914; border-color: #e50914; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Ani<span>Flix</span></a>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+        
+        <!-- Modifie le titre ici pour chaque animé -->
+        <h1>Demon Slayer</h1>
+        <p class="subtitle">Saison 1 à la saison actuelle • VOSTFR & VF</p>
+
+        <!-- Lecteur Vidéo -->
+        <div class="player-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        </div>
+
+        <!-- Liste des Épisodes -->
+        <div class="episodes-box">
+            <h3>Saisons :</h3>
+            <select class="season-select">
+                <option>Saison 1</option>
+                <option>Saison 2</option>
+                <option>Saison 3</option>
+                <option>Saison 4</option>
+            </select>
+
+            <h3>Épisodes :</h3>
+            <div class="episodes-grid">
+                <a href="#" class="ep-btn">Ép. 01</a>
+                <a href="#" class="ep-btn">Ép. 02</a>
+                <a href="#" class="ep-btn">Ép. 03</a>
+                <a href="#" class="ep-btn">Ép. 04</a>
+                <a href="#" class="ep-btn">Ép. 05</a>
+                <a href="#" class="ep-btn">Ép. 06</a>
+                <a href="#" class="ep-btn">Ép. 07</a>
+                <a href="#" class="ep-btn">Ép. 08</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
