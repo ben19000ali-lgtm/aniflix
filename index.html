@@ -1,8 +1,43 @@
-<!DOCTYPE html> <html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>AniFlix - Streaming Animés VOSTFR & VF</title> <style> * { box-sizing: border-box; margin: 0; padding: 0; } body 
-  { background-color: #0d0f12; color: #e1e6ed; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; } header { background-color:
- #15181e; display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; border-bottom: 2px solid #e50914; 
- flex-wrap: wrap; gap: 15px; } .logo { font-size: 1.8rem; font-weight: bold; color: #ffffff; text-decoration: none; } .logo span
-  { color: #e50914; } .search-box { display: flex; background: #1f232d; border-radius: 20px; padding: 5px 15px; width: 100
- max-width: 350px; } .search-box input { background: transparent; border: none; color: white; outline: none; width: 100%; padding:
- 5px; font-size: 0.9rem;..
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniFlix - Streaming Animés</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0d0f12; color: #e1e6ed; font-family: sans-serif; }
+        header { background-color: #15181e; display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; border-bottom: 2px solid #e50914; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #ffffff; text-decoration: none; }
+        .logo span { color: #e50914; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .section-title { font-size: 1.4rem; margin-bottom: 20px; border-left: 4px solid #e50914; padding-left: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+        .card { background-color: #15181e; border-radius: 8px; overflow: hidden; text-decoration: none; color: white; border: 1px solid #1f232d; }
+        .poster-container { position: relative; width: 100%; height: 260px; }
+        .poster-container img { width: 100%; height: 100%; object-fit: cover; }
+        .badge { position: absolute; top: 10px; left: 10px; background-color: #e50914; color: white; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 4px; }
+        .card-info { padding: 12px; }
+        .card-info h3 { font-size: 1rem; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Ani<span>Flix</span></a>
+    </header>
+    <div class="container">
+        <h2 class="section-title">Catalogue</h2>
+        <div class="grid">
+            <a href="demon-slayer.html" class="card">
+                <div class="poster-container">
+                    <span class="badge">VOSTFR</span>
+                    <img src="https://m.media-amazon.com/images/M/MV5BZjZjNzI5MDctY2JiNi00MGVmLTlhMGYtM2VkODY5Njg1ODA3XkEyXkFqcGdeQXVyMTM0NTUzNDIy._V1_.jpg" alt="Demon Slayer">
+                </div>
+                <div class="card-info">
+                    <h3>Demon Slayer</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
