@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -6,84 +6,139 @@
     <title>AniFlix - Streaming Animés VOSTFR & VF</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #0d0f12; color: #e1e6ed; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        header { background-color: #15181e; display: flex; align-items: center; justify-content: space-between; padding: 15px 5%; border-bottom: 2px solid #e50914; flex-wrap: wrap; gap: 15px; }
-        .logo { font-size: 1.8rem; font-weight: bold; color: #ffffff; text-decoration: none; }
+        body { background-color: #0b0c0e; color: #ffffff; font-family: 'Segoe UI', Roboto, sans-serif; }
+        
+        /* En-tête / Navbar */
+        header { 
+            background: linear-gradient(180deg, #161920 0%, #0b0c0e 100%); 
+            display: flex; align-items: center; justify-content: space-between; 
+            padding: 20px 5%; border-bottom: 2px solid #e50914; 
+            position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 15px; 
+        }
+        .logo { font-size: 2rem; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: 1px; }
         .logo span { color: #e50914; }
-        .search-box { display: flex; background: #1f232d; border-radius: 20px; padding: 5px 15px; width: 100%; max-width: 300px; }
-        .search-box input { background: transparent; border: none; color: white; outline: none; width: 100%; padding: 5px; font-size: 0.9rem; }
-        nav { display: flex; gap: 20px; }
-        nav a { color: #a0a7b5; text-decoration: none; font-weight: 500; }
-        nav a.active { color: #ffffff; }
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
-        .section-title { font-size: 1.4rem; margin-bottom: 20px; border-left: 4px solid #e50914; padding-left: 10px; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
-        .card { background-color: #15181e; border-radius: 8px; overflow: hidden; text-decoration: none; color: white; border: 1px solid #1f232d; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-5px); }
-        .poster-container { position: relative; width: 100%; height: 260px; background-color: #1a1d24; }
-        .poster-container img { width: 100%; height: 100%; object-fit: cover; }
-        .badge { position: absolute; top: 10px; left: 10px; background-color: #e50914; color: white; font-size: 0.75rem; font-weight: bold; padding: 3px 8px; border-radius: 4px; }
+        .search-box { display: flex; background: #1a1d24; border-radius: 25px; padding: 8px 18px; width: 100%; max-width: 320px; border: 1px solid #2d323e; }
+        .search-box input { background: transparent; border: none; color: #fff; outline: none; width: 100%; font-size: 0.95rem; }
+        
+        /* Bannière Héro */
+        .hero { 
+            position: relative; width: 100%; height: 350px; 
+            background: linear-gradient(to right, rgba(11, 12, 14, 0.95), rgba(11, 12, 14, 0.3)), 
+                        url('https://cdn.myanimelist.net/images/anime/6/73245.jpg') center/cover; 
+            display: flex; align-items: center; padding: 0 5%; margin-bottom: 40px; border-bottom: 1px solid #1f232d;
+        }
+        .hero-content { max-width: 600px; }
+        .hero-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
+        .hero-content p { color: #a0a7b5; font-size: 1rem; margin-bottom: 20px; }
+        .btn-play { background: #e50914; color: #fff; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn-play:hover { background: #b80710; transform: scale(1.05); }
+
+        /* Conteneur principal */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 50px 20px; }
+        .section-title { font-size: 1.5rem; margin-bottom: 25px; border-left: 4px solid #e50914; padding-left: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Grille des animés */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px; }
+        .card { 
+            background-color: #15181e; border-radius: 10px; overflow: hidden; 
+            text-decoration: none; color: white; border: 1px solid #1f232d; 
+            transition: all 0.3s ease; display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-8px); border-color: #e50914; box-shadow: 0 10px 20px rgba(229, 9, 20, 0.2); }
+        .poster-container { position: relative; width: 100%; height: 290px; background-color: #1a1d24; overflow: hidden; }
+        .poster-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .card:hover .poster-container img { transform: scale(1.08); }
+        .badge { position: absolute; top: 12px; left: 12px; background-color: #e50914; color: white; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
         .badge.vf { background-color: #007bc7; }
-        .card-info { padding: 12px; }
-        .card-info h3 { font-size: 1rem; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-info p { font-size: 0.8rem; color: #828a99; }
+        .card-info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-info h3 { font-size: 1.1rem; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; }
+        .card-info p { font-size: 0.85rem; color: #828a99; }
     </style>
 </head>
 <body>
+
+    <!-- En-tête -->
     <header>
         <a href="index.html" class="logo">Ani<span>Flix</span></a>
-        <nav>
-            <a href="#" class="active">Accueil</a>
-            <a href="#">Catalogue</a>
-        </nav>
         <div class="search-box">
-            <input type="text" placeholder="Rechercher un animé...">
+            <input type="text" id="searchInput" placeholder="Rechercher un animé...">
         </div>
     </header>
+
+    <!-- Bannière à la Une -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ONE PIECE</h1>
+            <p>Suivez Luffy et l'équipage du Chapeau de Paille dans leur quête du trésor ultime. Toutes les saisons disponibles en VOSTFR & VF !</p>
+            <a href="one-piece.html" class="btn-play">Regarder la Saison 1</a>
+        </div>
+    </section>
+
+    <!-- Catalogue -->
     <div class="container">
-        <h2 class="section-title">Dernières Sorties</h2>
-        <div class="grid">
-            <a href="demon-slayer.html" class="card">
-                <div class="poster-container">
-                    <span class="badge">VOSTFR</span>
-                    <img src="https://i.imgur.com/8N4Z4M8.jpg" alt="Demon Slayer">
-                </div>
-                <div class="card-info">
-                    <h3>Demon Slayer</h3>
-                    <p>Saison 4 • Épisode 12</p>
-                </div>
-            </a>
-            <a href="jujutsu-kaisen.html" class="card">
-                <div class="poster-container">
-                    <span class="badge vf">VF</span>
-                    <img src="https://i.imgur.com/3Z5V8QG.jpg" alt="Jujutsu Kaisen">
-                </div>
-                <div class="card-info">
-                    <h3>Jujutsu Kaisen</h3>
-                    <p>Saison 2 • Épisode 23</p>
-                </div>
-            </a>
+        <h2 class="section-title">Animés Populaires</h2>
+        <div class="grid" id="animeGrid">
+            
             <a href="one-piece.html" class="card">
                 <div class="poster-container">
-                    <span class="badge">VOSTFR</span>
-                    <img src="https://i.imgur.com/K1L8RzX.jpg" alt="One Piece">
+                    <span class="badge">VOSTFR / VF</span>
+                    <img src="https://cdn.myanimelist.net/images/anime/6/73245.jpg" alt="One Piece">
                 </div>
                 <div class="card-info">
                     <h3>One Piece</h3>
-                    <p>Épisode 1090</p>
+                    <p>Saison 1 à 21 • Tous les épisodes</p>
                 </div>
             </a>
+
+            <a href="demon-slayer.html" class="card">
+                <div class="poster-container">
+                    <span class="badge">VOSTFR</span>
+                    <img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg" alt="Demon Slayer">
+                </div>
+                <div class="card-info">
+                    <h3>Demon Slayer</h3>
+                    <p>Saison 1 à 4 • Intégrale</p>
+                </div>
+            </a>
+
+            <a href="jujutsu-kaisen.html" class="card">
+                <div class="poster-container">
+                    <span class="badge vf">VF</span>
+                    <img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg" alt="Jujutsu Kaisen">
+                </div>
+                <div class="card-info">
+                    <h3>Jujutsu Kaisen</h3>
+                    <p>Saison 1 & 2 • Tous les épisodes</p>
+                </div>
+            </a>
+
             <a href="snk.html" class="card">
                 <div class="poster-container">
                     <span class="badge vf">VF</span>
-                    <img src="https://i.imgur.com/Y4S6F6L.jpg" alt="L'Attaque des Titans">
+                    <img src="https://cdn.myanimelist.net/images/anime/1000/110531.jpg" alt="L'Attaque des Titans">
                 </div>
                 <div class="card-info">
                     <h3>Attack on Titan</h3>
-                    <p>Saison 4 • Final</p>
+                    <p>Saison 1 à 4 • Intégrale</p>
                 </div>
             </a>
+
         </div>
     </div>
+
+    <!-- Script Recherche -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+
+        searchInput.addEventListener('keyup', function() {
+            const query = searchInput.value.toLowerCase();
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                card.style.display = title.includes(query) ? 'flex' : 'none';
+            });
+        });
+    </script>
+
 </body>
 </html>
